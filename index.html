@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Апартаменты в Рощино — Продажа | Коттеджный поселок Балаково</title>
+<meta name="description" content="Продажа апартаментов 95,8 м² в коттеджном поселке Балаково, Рощино. Евроремонт, терраса, лес, SPA, теннис. 45 км от Санкт-Петербурга.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2c3d2e;
+    --moss:   #4a6741;
+    --sage:   #8aab7e;
+    --cream:  #f5f0e8;
+    --warm:   #ede5d4;
+    --gold:   #b8965a;
+    --text:   #1e2a1f;
+    --light:  #f9f6f0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--light);
+    color: var(--text);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background: var(--forest);
+  }
+
+  .hero-gallery {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+    opacity: .85;
+  }
+  .hero-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-gallery img:first-child {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(28,40,28,.92) 0%,
+      rgba(28,40,28,.45) 45%,
+      rgba(28,40,28,.1) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 6vw 6vh;
+  }
+
+  .hero-label {
+    font-family: 'Jost', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    color: var(--cream);
+    line-height: 1.05;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: #c8d9b8;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-meta span {
+    font-size: .85rem;
+    color: rgba(245,240,232,.7);
+    letter-spacing: .05em;
+  }
+
+  .hero-meta strong {
+    color: var(--cream);
+    font-weight: 400;
+  }
+
+  .hero-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    color: var(--gold);
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: .8rem;
+    background: var(--gold);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: .85rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 2.2rem;
+    transition: background .25s, transform .2s;
+  }
+  .hero-cta:hover { background: #a07840; transform: translateY(-2px); }
+  .hero-cta svg { width: 16px; height: 16px; }
+
+  /* ── NAV DOTS ── */
+  .nav-sticky {
+    position: fixed;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+  }
+  .nav-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(74,103,65,.35);
+    border: 1.5px solid var(--moss);
+    cursor: pointer;
+    transition: background .25s, transform .2s;
+  }
+  .nav-dot.active, .nav-dot:hover {
+    background: var(--moss);
+    transform: scale(1.4);
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 6vw; }
+
+  .section-tag {
+    font-size: .68rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.9rem, 4vw, 3.2rem);
+    font-weight: 300;
+    color: var(--forest);
+    line-height: 1.15;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5vw;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: #3a4a3b;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-image {
+    position: relative;
+  }
+  .about-image img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .about-image::before {
+    content: '';
+    position: absolute;
+    inset: -1.2rem -1.2rem 1.2rem 1.2rem;
+    border: 2px solid var(--sage);
+    z-index: -1;
+  }
+
+  /* ── SPECS GRID ── */
+  #specs {
+    background: var(--forest);
+    color: var(--cream);
+  }
+
+  #specs .section-heading { color: var(--cream); }
+  #specs .section-tag { color: var(--sage); }
+
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 2px;
+    margin-top: 3rem;
+  }
+
+  .spec-card {
+    background: rgba(255,255,255,.06);
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(255,255,255,.08);
+    transition: background .25s;
+  }
+  .spec-card:hover { background: rgba(255,255,255,.12); }
+
+  .spec-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: .4rem;
+  }
+  .spec-unit { font-size: .8rem; }
+  .spec-label {
+    font-size: .78rem;
+    letter-spacing: .08em;
+    color: var(--sage);
+    text-transform: uppercase;
+  }
+
+  /* ── PHOTO GRID ── */
+  #gallery {
+    background: var(--warm);
+    padding: 6rem 0;
+  }
+  #gallery .inner { padding: 0 6vw; }
+
+  .photo-masonry {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 6px;
+    margin-top: 3rem;
+  }
+
+  .photo-masonry img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity .3s;
+    cursor: zoom-in;
+  }
+  .photo-masonry img:hover { opacity: .85; }
+
+  .photo-masonry .tall { grid-row: span 2; }
+  .photo-masonry .wide { grid-column: span 2; }
+
+  .photo-cell { overflow: hidden; }
+  .photo-cell img { height: 260px; }
+  .photo-cell.tall img { height: 526px; }
+  .photo-cell.wide img { height: 260px; width: 100%; }
+
+  /* ── FLOORPLAN ── */
+  #floorplan {
+    background: var(--light);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5vw;
+    align-items: center;
+  }
+
+  .floorplan-img {
+    background: #fff;
+    padding: 2rem;
+    box-shadow: 0 4px 40px rgba(0,0,0,.07);
+  }
+  .floorplan-img img { width: 100%; display: block; }
+
+  .rooms-list { list-style: none; margin-top: 2rem; }
+  .rooms-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: .9rem 0;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    font-size: .95rem;
+    color: #3a4a3b;
+  }
+  .rooms-list li:last-child { border-bottom: none; }
+  .rooms-list .room-area {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--forest);
+    font-weight: 400;
+  }
+
+  /* ── INFRASTRUCTURE ── */
+  #infra {
+    background: var(--cream);
+  }
+
+  .infra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .infra-card {
+    padding: 2rem 1.5rem;
+    background: #fff;
+    border-left: 3px solid var(--sage);
+    transition: border-color .25s, transform .2s;
+  }
+  .infra-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+  .infra-icon { font-size: 1.8rem; margin-bottom: .8rem; }
+  .infra-name {
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: .3rem;
+  }
+  .infra-desc { font-size: .82rem; color: #6a7a6b; line-height: 1.5; }
+
+  /* ── LOCATION ── */
+  #location {
+    background: var(--forest);
+    color: var(--cream);
+  }
+  #location .section-heading { color: var(--cream); }
+  #location .section-tag { color: var(--sage); }
+
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .distance-list { list-style: none; }
+  .distance-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    font-size: .95rem;
+    color: rgba(245,240,232,.8);
+  }
+  .distance-list li:last-child { border-bottom: none; }
+  .dist-km {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    font-weight: 300;
+    min-width: 4rem;
+    line-height: 1;
+  }
+
+  .map-placeholder {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    padding: 2rem;
+    text-align: center;
+  }
+  .map-placeholder p { color: rgba(245,240,232,.5); font-size: .85rem; margin-bottom: 1rem; }
+  .map-placeholder a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: .85rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+  }
+  .map-embed {
+    width: 100%;
+    height: 320px;
+    border: none;
+    display: block;
+    filter: grayscale(.4) sepia(.1);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--warm);
+    text-align: center;
+  }
+
+  .contact-card {
+    max-width: 560px;
+    margin: 3rem auto 0;
+    background: #fff;
+    padding: 3.5rem;
+    box-shadow: 0 8px 60px rgba(0,0,0,.07);
+  }
+
+  .contact-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--gold);
+    margin-bottom: .5rem;
+    line-height: 1;
+  }
+  .contact-price-note {
+    font-size: .8rem;
+    color: #999;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-divider {
+    width: 40px; height: 1px;
+    background: var(--sage);
+    margin: 0 auto 2.5rem;
+  }
+
+  .contact-name {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: .25rem;
+  }
+  .contact-title { font-size: .82rem; color: #999; margin-bottom: 2rem; }
+
+  .contact-phone {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--forest);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: color .2s;
+  }
+  .contact-phone:hover { color: var(--moss); }
+
+  .contact-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--forest);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: .8rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: .9rem 2rem;
+    transition: background .2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--moss); }
+
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--forest);
+    color: var(--forest);
+    font-family: 'Jost', sans-serif;
+    font-size: .8rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: .9rem 2rem;
+    transition: all .2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { background: var(--forest); color: #fff; }
+
+  .contact-note {
+    font-size: .78rem;
+    color: #bbb;
+    margin-top: 1.8rem;
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,.4);
+    text-align: center;
+    padding: 2rem;
+    font-size: .78rem;
+    letter-spacing: .05em;
+  }
+
+  /* ── INFRA PHOTO GALLERY ── */
+  .infra-photos {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .infra-photo-cell {
+    overflow: hidden;
+    position: relative;
+  }
+  .infra-photo-cell img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s ease, opacity .3s;
+    cursor: zoom-in;
+  }
+  .infra-photo-cell img:hover { transform: scale(1.04); opacity: .9; }
+  .infra-photo-cell.wide {
+    grid-column: span 2;
+  }
+  .infra-photo-cell.wide img { height: 240px; }
+  .infra-photo-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(28,40,28,.75));
+    color: rgba(245,240,232,.9);
+    font-size: .75rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: .8rem 1rem .7rem;
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    .infra-photos { grid-template-columns: 1fr 1fr; }
+    .infra-photo-cell.wide { grid-column: span 2; }
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.92);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    display: block;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    opacity: .7;
+    transition: opacity .2s;
+    background: none;
+    border: none;
+    font-family: sans-serif;
+  }
+  .lightbox-close:hover { opacity: 1; }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    #about, #floorplan, .location-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-gallery {
+      grid-template-columns: 1fr;
+    }
+    .hero-gallery img:first-child {
+      grid-row: auto;
+    }
+    .photo-masonry {
+      grid-template-columns: 1fr 1fr;
+    }
+    .photo-cell.tall img { height: 300px; }
+    .nav-sticky { display: none; }
+    .contact-card { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV DOTS -->
+<nav class="nav-sticky" aria-label="Навигация">
+  <a class="nav-dot active" href="#hero" title="Начало"></a>
+  <a class="nav-dot" href="#about" title="Об объекте"></a>
+  <a class="nav-dot" href="#specs" title="Характеристики"></a>
+  <a class="nav-dot" href="#gallery" title="Фото"></a>
+  <a class="nav-dot" href="#floorplan" title="Планировка"></a>
+  <a class="nav-dot" href="#infra" title="Инфраструктура"></a>
+  <a class="nav-dot" href="#location" title="Расположение"></a>
+  <a class="nav-dot" href="#contact" title="Контакт"></a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-gallery">
+    <!-- Замените пути на реальные фото после загрузки на хостинг -->
+    <img src="photos/living2.jpeg" alt="Гостиная" loading="eager">
+    <img src="photos/terrace.jpeg" alt="Терраса" loading="eager">
+    <img src="photos/kitchen.jpeg" alt="Кухня" loading="eager">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-label">Коттеджный поселок Балаково · Рощино · Ленинградская область</p>
+    <h1 class="hero-title">
+      Апартаменты<br>
+      <em>в сосновом лесу</em>
+    </h1>
+    <div class="hero-meta">
+      <span><strong>3 комнаты</strong></span>
+      <span><strong>95,8 м²</strong> общая</span>
+      <span><strong>~40 м²</strong> терраса</span>
+      <span>Евроремонт</span>
+      <span>С мебелью</span>
+      <span>1-й этаж</span>
+    </div>
+    <div class="hero-price">По запросу — звоните</div>
+    <a href="#contact" class="hero-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 7.18 19.79 19.79 0 01.07 4.5 2 2 0 012.1 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Узнать цену и записаться
+    </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-text fade-in">
+    <span class="section-tag">Об объекте</span>
+    <h2 class="section-heading">Загородная жизнь<br>без компромиссов</h2>
+    <p>Апартаменты площадью 95,8 м² с собственной террасой 40 м² — это редкий формат: городской комфорт в окружении соснового леса в 45 км от Санкт-Петербурга.</p>
+    <p>Первый этаж с прямым выходом на открытую террасу, откуда открывается вид на лес. Полностью готово к заселению — мебель и техника включены в стоимость.</p>
+    <p>Монолитно-кирпичный дом, евроремонт, просторная кухня-гостиная 45,7 м², две отдельные спальни. Один собственник, быстрый выход на сделку.</p>
+  </div>
+  <div class="about-image fade-in">
+    <img src="photos/terrace_outside.jpeg" alt="Вид на террасу снаружи">
+  </div>
+</section>
+
+<!-- SPECS -->
+<section id="specs">
+  <span class="section-tag">Характеристики</span>
+  <h2 class="section-heading">Цифры говорят<br>сами за себя</h2>
+  <div class="specs-grid fade-in">
+    <div class="spec-card">
+      <div class="spec-value">95,8 <span class="spec-unit">м²</span></div>
+      <div class="spec-label">Общая площадь</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-value">45,7 <span class="spec-unit">м²</span></div>
+      <div class="spec-label">Кухня-гостиная</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-value">~40 <span class="spec-unit">м²</span></div>
+      <div class="spec-label">Терраса</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-value">17,6 <span class="spec-unit">м²</span></div>
+      <div class="spec-label">Спальня</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-value">12,6 <span class="spec-unit">м²</span></div>
+      <div class="spec-label">Детская / кабинет</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-value">2</div>
+      <div class="spec-label">Санузла</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-value">1</div>
+      <div class="spec-label">Этаж (с выходом на улицу)</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-value">70 <span class="spec-unit">км</span></div>
+      <div class="spec-label">До центра СПб</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="inner">
+    <span class="section-tag">Фотографии</span>
+    <h2 class="section-heading fade-in">Интерьер и пространство</h2>
+  </div>
+  <div style="padding: 0 6vw;">
+    <div class="photo-masonry">
+      <div class="photo-cell tall">
+        <img src="photos/living1.jpeg" alt="Гостиная — общий вид" onclick="openLightbox(this.src)">
+      </div>
+      <div class="photo-cell">
+        <img src="photos/kitchen.jpeg" alt="Кухня" onclick="openLightbox(this.src)">
+      </div>
+      <div class="photo-cell">
+        <img src="photos/bedroom.jpeg" alt="Спальня" onclick="openLightbox(this.src)">
+      </div>
+      <div class="photo-cell">
+        <img src="photos/living2.jpeg" alt="Гостиная" onclick="openLightbox(this.src)">
+      </div>
+      <div class="photo-cell">
+        <img src="photos/children.jpeg" alt="Детская" onclick="openLightbox(this.src)">
+      </div>
+      <div class="photo-cell tall">
+        <img src="photos/hall1.jpeg" alt="Прихожая" onclick="openLightbox(this.src)">
+      </div>
+      <div class="photo-cell">
+        <img src="photos/hall2.jpeg" alt="Прихожая — другой ракурс" onclick="openLightbox(this.src)">
+      </div>
+      <div class="photo-cell">
+        <img src="photos/bathroom.jpeg" alt="Санузел" onclick="openLightbox(this.src)">
+      </div>
+      <div class="photo-cell">
+        <img src="photos/terrace.jpeg" alt="Терраса" onclick="openLightbox(this.src)">
+      </div>
+      <div class="photo-cell">
+        <img src="photos/terrace_outside.jpeg" alt="Внешний вид" onclick="openLightbox(this.src)">
+      </div>
+      <div class="photo-cell">
+        <img src="photos/bathroom2.jpeg" alt="Второй санузел" onclick="openLightbox(this.src)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOORPLAN -->
+<section id="floorplan">
+  <div class="floorplan-img fade-in">
+    <img src="photos/floorplan.jpeg" alt="Планировка квартиры">
+  </div>
+  <div class="fade-in">
+    <span class="section-tag">Планировка</span>
+    <h2 class="section-heading">Продуманное<br>пространство</h2>
+    <p style="font-size:.95rem;line-height:1.8;color:#3a4a3b;margin-bottom:1.5rem;">Все комнаты изолированы. Огромная кухня-гостиная 45,7 м² — центр притяжения всей семьи. Первый этаж с прямым выходом на террасу.</p>
+    <ul class="rooms-list">
+      <li><span>Кухня-гостиная</span><span class="room-area">45,7 м²</span></li>
+      <li><span>Спальня</span><span class="room-area">17,6 м²</span></li>
+      <li><span>Детская / кабинет</span><span class="room-area">12,6 м²</span></li>
+      <li><span>Санузел (с ванной)</span><span class="room-area">7,8 м²</span></li>
+      <li><span>Санузел (гостевой)</span><span class="room-area">2,8 м²</span></li>
+      <li><span>Коридор</span><span class="room-area">11,9 м²</span></li>
+      <li><span>Терраса</span><span class="room-area">~40 м²</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- INFRASTRUCTURE -->
+<section id="infra">
+  <span class="section-tag">Инфраструктура поселка</span>
+  <h2 class="section-heading fade-in">Всё для отдыха<br>и активной жизни</h2>
+  <div class="infra-grid">
+    <div class="infra-card fade-in">
+      <div class="infra-icon">🏊</div>
+      <div class="infra-name">Бассейн и сауна</div>
+      <div class="infra-desc">SPA-комплекс на территории поселка</div>
+    </div>
+    <div class="infra-card fade-in">
+      <div class="infra-icon">🎾</div>
+      <div class="infra-name">Теннисные корты</div>
+      <div class="infra-desc">Крытые и открытые корты, бильярд</div>
+    </div>
+    <div class="infra-card fade-in">
+      <div class="infra-icon">⚽</div>
+      <div class="infra-name">Спортивные площадки</div>
+      <div class="infra-desc">Футбольное поле, тренажерный зал</div>
+    </div>
+    <div class="infra-card fade-in">
+      <div class="infra-icon">🌲</div>
+      <div class="infra-name">Лес и озера</div>
+      <div class="infra-desc">Рыбалка, грибы, прогулки, купание</div>
+    </div>
+    <div class="infra-card fade-in">
+      <div class="infra-icon">🚣</div>
+      <div class="infra-name">Озеро с пирсом</div>
+      <div class="infra-desc">Охраняемая зона на озере — катание на лодке</div>
+    </div>
+    <div class="infra-card fade-in">
+      <div class="infra-icon">🏖️</div>
+      <div class="infra-name">Песчаный пляж</div>
+      <div class="infra-desc">Река Широкая рядом с поселком</div>
+    </div>
+    <div class="infra-card fade-in">
+      <div class="infra-icon">🚗</div>
+      <div class="infra-name">Охрана и шлагбаум</div>
+      <div class="infra-desc">Закрытая территория, наземная парковка</div>
+    </div>
+    <div class="infra-card fade-in">
+      <div class="infra-icon">🎪</div>
+      <div class="infra-name">Зал мероприятий</div>
+      <div class="infra-desc">Банкеты, праздники, корпоративы</div>
+    </div>
+    <div class="infra-card fade-in">
+      <div class="infra-icon">🌊</div>
+      <div class="infra-name">Финский залив</div>
+      <div class="infra-desc">До Зеленогорска — 20 минут езды</div>
+    </div>
+  </div>
+
+  <!-- Фотографии инфраструктуры -->
+  <div class="infra-photos fade-in">
+    <div class="infra-photo-cell wide">
+      <img src="photos/pool.jpeg" alt="Крытый бассейн" onclick="openLightbox(this.src)">
+      <div class="infra-photo-caption">Крытый бассейн</div>
+    </div>
+    <div class="infra-photo-cell">
+      <img src="photos/gym.jpeg" alt="Тренажерный зал" onclick="openLightbox(this.src)">
+      <div class="infra-photo-caption">Тренажерный зал</div>
+    </div>
+    <div class="infra-photo-cell">
+      <img src="photos/billiard.jpeg" alt="Бильярдная" onclick="openLightbox(this.src)">
+      <div class="infra-photo-caption">Бильярдная</div>
+    </div>
+    <div class="infra-photo-cell wide">
+      <img src="photos/clubroom.jpeg" alt="Клубная комната" onclick="openLightbox(this.src)">
+      <div class="infra-photo-caption">Клубная комната</div>
+    </div>
+    <div class="infra-photo-cell">
+      <img src="photos/tennis.jpeg" alt="Теннисный корт и детская площадка" onclick="openLightbox(this.src)">
+      <div class="infra-photo-caption">Теннис · Детская площадка</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <span class="section-tag">Расположение</span>
+  <h2 class="section-heading">Рощино, Выборгский район<br>ул. Ладожская, д. 28</h2>
+  <div class="location-grid fade-in">
+    <ul class="distance-list">
+      <li>
+        <span class="dist-km">70 км</span>
+        <span>до центра Санкт-Петербурга</span>
+      </li>
+      <li>
+        <span class="dist-km">50 мин</span>
+        <span>езды от центра города</span>
+      </li>
+      <li>
+        <span class="dist-km">20 мин</span>
+        <span>до Зеленогорска и Финского залива</span>
+      </li>
+      <li>
+        <span class="dist-km">📍</span>
+        <span>Ленинградская обл., Выборгский р-н, Рощино, ул. Ладожская, д. 28</span>
+      </li>
+      <li>
+        <span class="dist-km">🚣</span>
+        <span>охраняемая зона на озере с пирсом — катание на лодке</span>
+      </li>
+    </ul>
+    <div>
+      <!-- Вставьте iframe с Яндекс.Картами или Google Maps -->
+      <div class="map-placeholder">
+        <iframe
+          class="map-embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1000!2d29.65578!3d60.28768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNjDCsDE3JzE1LjciTiAyOcKwMzknMjAuOCJF!5e1!3m2!1sru!2sru!4v1680000000000"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Карта расположения"></iframe>
+        <a href="https://maps.google.com/?q=60.28768,29.65578" target="_blank" rel="noopener">Открыть на Google Maps →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <span class="section-tag">Контакт</span>
+  <h2 class="section-heading fade-in">Готовы к просмотру?<br>Звоните сейчас</h2>
+  <div class="contact-card fade-in">
+    <div class="contact-price">Уточните цену</div>
+    <div class="contact-price-note">Один собственник · Быстрый выход на сделку</div>
+    <div class="contact-divider"></div>
+    <!-- ЗАМЕНИТЕ НА ВАШЕ ИМЯ И ТЕЛЕФОН -->
+    <div class="contact-name">Елена</div>
+    <div class="contact-title">Представитель собственника · Прямая продажа</div>
+    <a class="contact-phone" href="tel:+79111622594">+7 (911) 162-25-94</a>
+    <div class="contact-btns">
+      <a href="tel:+79111622594" class="btn-primary">Позвонить</a>
+      <a href="https://wa.me/79111622594" class="btn-outline" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://t.me/+79111622594" class="btn-outline" target="_blank" rel="noopener">Telegram</a>
+    </div>
+    <p class="contact-note">Объявление на ЦИАН: <a href="https://spb.cian.ru/sale/flat/328101796/" target="_blank" style="color:var(--moss)">ID 328101796</a><br>Показы — по предварительной записи</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 · Апартаменты в Рощино · Коттеджный поселок Балаково · Ленинградская область</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  // LIGHTBOX
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // SCROLL ANIMATIONS
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // NAV DOTS ACTIVE STATE
+  const sections = document.querySelectorAll('section[id]');
+  const dots = document.querySelectorAll('.nav-dot');
+  const sectionIds = ['hero','about','specs','gallery','floorplan','infra','location','contact'];
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 200) current = s.id;
+    });
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', sectionIds[i] === current);
+    });
+  });
+</script>
+</body>
+</html>
